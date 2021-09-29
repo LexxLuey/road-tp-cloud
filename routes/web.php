@@ -59,5 +59,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
+    Route::get('/booking', [App\Http\Controllers\TransactionController::class, 'index'])->name('booking');
+    Route::get('/payments', [App\Http\Controllers\HomeController::class, 'index'])->name('payments');
+    Route::get('/promotion', [App\Http\Controllers\HomeController::class, 'index'])->name('promotion');
+    Route::get('/travel-history', [App\Http\Controllers\HomeController::class, 'index'])->name('travel');
+    Route::get('/support', [App\Http\Controllers\HomeController::class, 'index'])->name('support');
 });
 

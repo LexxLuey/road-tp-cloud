@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'profile', 'titlePage' => __('User Profile')])
+@extends('layouts.app', ['activePage' => 'booking', 'titlePage' => __('Booking')])
 
 @section('content')
   <div class="content">
@@ -7,7 +7,7 @@
         <div class="col-md-12">
           <form method="post" action="{{ route('profile.update') }}" autocomplete="off" class="form-horizontal">
             @csrf
-            @method('put')
+            {{-- @method('put') --}}
 
             <div class="card ">
               <div class="card-header card-header-primary">
@@ -122,3 +122,6 @@
     </div>
   </div>
 @endsection
+
+
+

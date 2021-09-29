@@ -17,8 +17,8 @@
             <p>{{ __('Dashboard') }}</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'booking' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('booking') }}">
+      <li class="nav-item{{ $activePage == 'map' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('map') }}">
           <i class="material-icons">card_travel</i>
             <p>{{ __('Book Seat') }}</p>
         </a>
@@ -47,7 +47,7 @@
             <p>{{ __('Travel History') }}</p>
         </a>
       </li>
-      {{-- <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
+      <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
           <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i>
           <p>{{ __('Laravel Examples') }}
@@ -70,8 +70,8 @@
             </li>
           </ul>
         </div>
-      </li> --}}
-      {{-- <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
+      </li>
+      <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('table') }}">
           <i class="material-icons">content_paste</i>
             <p>{{ __('Table List') }}</p>
@@ -88,7 +88,7 @@
           <i class="material-icons">bubble_chart</i>
           <p>{{ __('Icons') }}</p>
         </a>
-      </li> --}}
+      </li>
       <li class="nav-item{{ $activePage == 'map' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('map') }}">
           <i class="material-icons">location_ons</i>

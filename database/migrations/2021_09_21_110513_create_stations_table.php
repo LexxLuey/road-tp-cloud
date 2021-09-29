@@ -15,6 +15,11 @@ class CreateStationsTable extends Migration
     {
         Schema::create('stations', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('address')->nullable();
+            $table->integer('lga_id')->nullable();
+            $table->integer('state_id')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
