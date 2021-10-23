@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +21,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/available-routes', [App\Http\Controllers\RouteController::class, 'index'])->name('available-routes');
+Route::post('/available-route', [App\Http\Controllers\RouteController::class, 'show'])->name('available-route');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
@@ -54,6 +61,8 @@ Route::group(['middleware' => 'auth'], function () {
 	})->name('upgrade');
 });
 
+Route::get('/getCity/{id}', [DashboardController::class, 'getCity']);
+
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
@@ -66,3 +75,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/support', [App\Http\Controllers\HomeController::class, 'index'])->name('support');
 });
 
+Route::group(['as'=>'admin.','prefix' => 'admin','middleware'=>['auth','admin']], function () {
+    Route::get('dashboard', [AdminController::class,'index'])->name('dashboard');
+});

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Flight;
 use App\Models\Route;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class RouteController extends Controller
      */
     public function index()
     {
-        //
+        // $routes = Route::where()->get();
+        return view('pages.client.available-routes');
     }
 
     /**
@@ -44,9 +46,26 @@ class RouteController extends Controller
      * @param  \App\Models\Route  $route
      * @return \Illuminate\Http\Response
      */
-    public function show(Route $route)
+    public function show(Request $request)
     {
-        //
+        /**
+         * "origin_state_id" => "5"
+         * "origin_lga_id" => "91"
+         * "destination_state_id" => "20"
+         * "destination_lga_id" => "370"
+         * "departure_date" => "2021-10-21"
+         */
+
+        $route = Route::where([
+            ['location_lga_id', $request->origin_lga_id],
+            ['location_state_id', $request->origin_state_id],
+            ['destination_lga_id', $request->destination_lga_id],
+            ['destination_state_id', $request->destination_state_id]
+        ])->first();
+
+        $available_vehicles = Flight::where('route_id', $route->id)->get();
+        // dd($available_vehcles);
+        return view('pages.client.available-routes', ['available_vehicles' => $available_vehicles, 'route' => $route]);
     }
 
     /**

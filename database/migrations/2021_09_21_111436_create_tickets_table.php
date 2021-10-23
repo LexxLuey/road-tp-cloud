@@ -15,15 +15,15 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->string('booking_id')->nullable();
-            $table->string('customer_id')->nullable();
+            $table->integer('booking_id')->nullable();
+            $table->integer('customer_id')->nullable();
             $table->string('customer_name')->nullable();
             $table->string('status')->nullable();
             $table->string('location')->nullable();
             $table->string('destination')->nullable();
-            $table->string('vehicle_id')->nullable();
-            $table->string('vehicle_seat')->nullable();
-            $table->string('price')->nullable();
+            $table->integer('vehicle_id')->nullable();
+            $table->integer('vehicle_seat')->nullable();
+            $table->integer('price')->nullable();
             $table->integer('lga_id')->nullable();
             $table->integer('state_id')->nullable();
             $table->timestamps();

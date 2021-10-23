@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TransactionController extends Controller
 {
@@ -15,8 +16,10 @@ class TransactionController extends Controller
     public function index()
     {
         //
-        return view('pages.client.purchase');
+        $states = DB::table('states')->get();
+        return view('pages.client.purchase', ['states' => $states]);
     }
+
 
     /**
      * Show the form for creating a new resource.

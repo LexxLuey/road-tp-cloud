@@ -1,4 +1,4 @@
-@extends('layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'home', 'title' => __('Material Dashboard'), 'titlePage' => __('home')])
+@extends('layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'home', 'title' => __('Bus Cloud System'), 'titlePage' => __('home')])
 
 @section('content')
 <div class="container" style="height: auto;">

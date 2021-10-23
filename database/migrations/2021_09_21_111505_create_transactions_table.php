@@ -15,6 +15,10 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->string('ref_no');
+            $table->integer('customer_id');
+            $table->integer('amount');
+            $table->boolean('is_success')->default(0);
             $table->timestamps();
         });
     }

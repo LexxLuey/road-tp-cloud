@@ -15,6 +15,9 @@ class CreateSeatsTable extends Migration
     {
         Schema::create('seats', function (Blueprint $table) {
             $table->id();
+            $table->integer('seat_no')->nullable();
+            $table->integer('vehicle_id')->nullable();
+            $table->integer('customer_id')->nullable();
             $table->timestamps();
         });
     }
